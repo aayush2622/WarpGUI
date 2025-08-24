@@ -1,0 +1,7 @@
+name: WarpGUI
+version: '0.1'
+main: mc.aayush262.WarpGUI
+api-version: '1.21'
+authors: [ aayush262 ]
+description: A warp GUI for EssentialsX
+website: https://github.com/aayush2622
