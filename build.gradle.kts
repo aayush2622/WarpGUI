@@ -12,11 +12,16 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/") {
         name = "papermc-repo"
     }
+    maven("https://repo.essentialsx.net/releases") {
+        name = "essentialsxReleases"
+    }
+
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+    compileOnly("net.essentialsx:EssentialsX:2.21.2")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib:2.2.20-RC")
 }
 
 tasks {
@@ -36,7 +41,10 @@ kotlin {
 tasks.build {
     dependsOn("shadowJar")
 }
-
+tasks.shadowJar {
+    archiveClassifier.set("")
+    minimize()
+}
 tasks.processResources {
     val props = mapOf("version" to version)
     inputs.properties(props)
